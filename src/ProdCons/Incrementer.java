@@ -26,7 +26,7 @@ public class Incrementer implements Runnable{
             for(int i = 0; i < 10; i++) {
                 tu.bufferProduce();
                 try {
-                    Thread.sleep(500);
+                    wait(500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

@@ -44,8 +44,9 @@ public class ThreadUtils {
         return Integer.toString(fixed_size_buffer[last_read_index++]);
     }
 
-    public void bufferProduce(){
-        fixed_size_buffer[++buffer_index] = int_generator.nextInt(10);
+    synchronized public void bufferProduce(){
+        buffer_index++;
+        fixed_size_buffer[buffer_index] = int_generator.nextInt(10);
     }
 
     synchronized public void done (){

@@ -1,5 +1,7 @@
 package ProdCons;
 
+import java.util.Arrays;
+
 /**
  * Guarded blocks
  * Write a short program in which one thread increments an integer 1,000,000 times, and a second thread prints the integer -- without waiting for it to finish.
@@ -22,6 +24,7 @@ public class Main {
             e.printStackTrace();
         }
         System.out.println("Main out: " + threadUtils.toString());
+        System.out.println("VERIFY: " + Arrays.toString(threadUtils.fixed_size_buffer));
 
     }
 }
