@@ -6,21 +6,22 @@ package ProdCons;
  * Modify the program to use a condition variable to signal completion of the incrementing task by the first thread before the second thread prints the value.
  */
 public class Main {
-    int inc = 0;
+
     public static void main (String [] args){
         ThreadUtils threadUtils = new ThreadUtils();
 
-        Thread incrementer = new Thread(new Incrementer(threadUtils));
-        Thread consumer = new Thread(new Consumer(threadUtils));
+        Thread incrementer = new Thread(new Incrementer(threadUtils, true));
+        Thread consumer = new Thread(new Consumer(threadUtils, true));
 
         consumer.start();
         incrementer.start();
 
         try {
-            Thread.sleep(10);
+            Thread.sleep(10000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         System.out.println("Main out: " + threadUtils.toString());
+
     }
 }
